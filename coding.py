@@ -1,4 +1,5 @@
 from db_connection import create_connection, select_all_tasks
+from routes import generate_routes
 
 
 def main():
@@ -10,8 +11,12 @@ def main():
         print("1. Query all tasks")
         all_routes = select_all_tasks(conn)
 
-    print(all_routes[1][0])
+    print(all_routes[1][1])
+
+    generated_routes = generate_routes(all_routes)
+    print(generated_routes)
 
 
 if __name__ == '__main__':
     main()
+
