@@ -1,5 +1,6 @@
 from db_connection import create_connection, select_all_tasks
 from routes import generate_routes
+from signal_test import signal_generator
 
 
 def main():
@@ -15,6 +16,8 @@ def main():
 
     generated_routes = generate_routes(all_routes)
     print(generated_routes)
+
+    signal_generator(generated_routes)
 
 
 if __name__ == '__main__':
