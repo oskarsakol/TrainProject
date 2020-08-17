@@ -19,7 +19,6 @@ def signal_test(generated_routes, db):
         establish_test, establish_note = establish_route_test(generated_routes[key], route_length)
         release_test, release_note = release_route_test(generated_routes[key], route_length)
 
-        # print(establish_test, "|", release_test)
         note = establish_note + ", " + release_note
 
         if establish_test and release_test is True:
@@ -34,15 +33,9 @@ def signal_test(generated_routes, db):
             print("boooooo")
 
 
-        # signal_test(generated_routes[key], route_length)
-
-
 def establish_route_test(generated_route, route_length):
 
-    print(generated_route)
-    testing_courses_ids = []
     for course in range(route_length):
-        testing_courses_ids.append(generated_route[course][0])
         establish_route(generated_route[course][0])
         starting_semaphore_signal = get_signal_state(generated_route[course][1])
         finishing_semaphore_signal = get_signal_state(generated_route[course][2])
@@ -54,8 +47,6 @@ def establish_route_test(generated_route, route_length):
 
 
 def release_route_test(generated_route, route_length):
-
-    print(generated_route)
 
     for course in range(route_length, 0, -1):
 
