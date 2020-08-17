@@ -13,6 +13,9 @@ def create_connection(db_file):
         conn = sqlite3.connect(db_file)
     except Error as e:
         print(e)
+    # finally:
+    #     if conn:
+    #         conn.close()
 
     return conn
 
@@ -28,7 +31,16 @@ def select_all_tasks(conn):
 
     rows = cur.fetchall()
 
-    # for row in rows:
-    #     print(row[1])
-
     return rows
+
+
+def delete_all_tasks(conn):
+    """
+    Delete all rows in the tasks table
+    :param conn: Connection to the SQLite database
+    :return:
+    """
+    sql = 'DELETE FROM results'
+    cur = conn.cursor()
+    cur.execute(sql)
+    conn.commit()

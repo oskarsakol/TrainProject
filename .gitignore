@@ -167,3 +167,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+/obiekt_kolejowy_results.db
