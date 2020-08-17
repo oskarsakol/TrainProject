@@ -3,13 +3,6 @@ from routes import generate_routes
 from signal_test import signal_test
 
 
-# Dobra ja to rozumiem tak, establish sprawdzanie od początku od końca, releaserskiej od końca do początku, przy tym i tym trzeba odpalić ich funkcje
-# do logowania wydarzenia gdzie na inputcie trzeba podać id całej trasy, gdzie wszystkie trasy gdzieś trzymamy już złożone. Przy każdym teście zarówno
-# establish jak i release musimy użyć ich funkcji get_signal_state, żeby dla każdego semafora danej trasy wygenerować stan. Następnie sprawdzamy czy każdy
-# element drogi ( oni to nazywają przebieg) jest ustawiony dobrze czyli dla establish musi być na pierwszym semaforze SX a na drugim S1, gdzie w release musi
-# być na wszystkich semaforach S1
-
-
 def main():
 
     database = r"/Users/oskarsakol/PycharmProjects/bombardier/obiekt_kolejowy.tdb2"
