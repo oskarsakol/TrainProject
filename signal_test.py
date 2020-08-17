@@ -25,12 +25,10 @@ def signal_test(generated_routes, db):
             c.execute('''INSERT INTO results
                          VALUES(?,?,?,?)''', (key, str(testing_courses_ids), "PASS", note))
             conn.commit()
-            print("cool")
         else:
             c.execute('''INSERT INTO results
                          VALUES(?,?,?,?)''', (key, str(testing_courses_ids), "FAIL", note))
             conn.commit()
-            print("boooooo")
 
 
 def establish_route_test(generated_route, route_length):
