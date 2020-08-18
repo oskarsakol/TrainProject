@@ -13,8 +13,8 @@ def signal_test(generated_routes, db):
         route_length = len(generated_routes[key])
 
         testing_courses_ids = []
-        for course in range(route_length):
-            testing_courses_ids.append(generated_routes[key][course][0])
+
+        [testing_courses_ids.append(generated_routes[key][course][0]) for course in range(route_length)]
 
         establish_test, establish_note = establish_route_test(generated_routes[key], route_length)
         release_test, release_note = release_route_test(generated_routes[key], route_length)
