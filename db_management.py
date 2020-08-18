@@ -28,7 +28,16 @@ def select_all_tasks(conn):
 
     rows = cur.fetchall()
 
-    # for row in rows:
-    #     print(row[1])
-
     return rows
+
+
+def delete_all_tasks(conn):
+    """
+    Delete all rows in the tasks table
+    :param conn: Connection to the SQLite database
+    :return:
+    """
+    sql = 'DELETE FROM results'
+    cur = conn.cursor()
+    cur.execute(sql)
+    conn.commit()
