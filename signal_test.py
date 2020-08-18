@@ -3,6 +3,12 @@ from railway_control import establish_route, release_route, get_signal_state
 
 
 def signal_test(generated_routes, db):
+    """
+    Testing establish and release of previously generated routes
+    :param generated_routes: all routes composed from courses
+    :param db: name of database used for storing results
+    :return:
+    """
 
     conn = create_connection(db)
 
@@ -29,30 +35,3 @@ def signal_test(generated_routes, db):
             c.execute('''INSERT INTO results
                          VALUES(?,?,?,?)''', (key, str(testing_courses_ids), "FAIL", note))
             conn.commit()
-
-
-# def establish_route_test(generated_route, route_length):
-#
-#     for course in range(route_length):
-#         establish_route(generated_route[course][0])
-#         starting_semaphore_signal = get_signal_state(generated_route[course][1])
-#         finishing_semaphore_signal = get_signal_state(generated_route[course][2])
-#         if starting_semaphore_signal != "SX" or finishing_semaphore_signal != "S1":
-#             note = "Failed at Establishing"
-#             return False, note
-#         note = "Passed at Establishing"
-#         return True, note
-#
-#
-# def release_route_test(generated_route, route_length):
-#
-#     for course in range(route_length, 0, -1):
-#
-#         release_route(generated_route[course - 1][0])
-#         starting_semaphore_signal = get_signal_state(generated_route[course - 1][1])
-#         finishing_semaphore_signal = get_signal_state(generated_route[course - 1][2])
-#         if starting_semaphore_signal != "S1" or finishing_semaphore_signal != "S1":
-#             note = "Failed at Releasing"
-#             return False, note
-#     note = "Passed at Releasing"
-#     return True, note

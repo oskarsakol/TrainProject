@@ -7,11 +7,11 @@ def main():
 
     database = r"/Users/oskarsakol/PycharmProjects/bombardier/obiekt_kolejowy.tdb2"
     database_results = r"/Users/oskarsakol/PycharmProjects/bombardier/obiekt_kolejowy_results.db"
-    # create a database connection
+
     conn = create_connection(database)
 
     with conn:
-        all_routes = select_all_tasks(conn)
+        all_courses = select_all_tasks(conn)
 
     if conn:
         conn.close()
@@ -28,7 +28,7 @@ def main():
     if conn:
         conn.close()
 
-    generated_routes = generate_routes(all_routes)
+    generated_routes = generate_routes(all_courses)
 
     signal_test(generated_routes, database_results)
 
